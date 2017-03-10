@@ -8,6 +8,8 @@ import { AngularFireModule} from 'angularfire2';
 import { DataobjectComponent } from './dataobject/dataobject.component';
 import { DatalistComponent } from './datalist/datalist.component';
 
+import {MaterialModule} from '@angular/material';
+
 export const firebaseConfig = {
   apiKey: 'AIzaSyAVpIqYpetwJi3i87kKCwv72TEXBKDaa5Y',
   authDomain: 'project-3608165319188981417.firebaseapp.com',
@@ -26,7 +28,8 @@ export const firebaseConfig = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
