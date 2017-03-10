@@ -12,6 +12,6 @@ export class AppComponent {
     this.items = af.database.list('/entidadesfinancieras');
   }
 
-  title = 'app works!';
+  title = 'Angular Firebase Material Design';
   items: FirebaseListObservable<any[]>;
 }

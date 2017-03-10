@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AngularFireModule} from 'angularfire2';
 import { DataobjectComponent } from './dataobject/dataobject.component';
 import { DatalistComponent } from './datalist/datalist.component';
+import 'hammerjs';
 
 import {MaterialModule} from '@angular/material';
 

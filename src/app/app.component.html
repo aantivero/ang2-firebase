@@ -1,11 +1,40 @@
-<h1>
-  {{title}}
-</h1>
-<ul>
-  <li class="text" *ngFor="let item of items | async">
-    <h2>{{item.codigo}}</h2>
-    <p>{{item.denominacion}}</p>
-  </li>
-</ul>
-<app-dataobject></app-dataobject>
-<app-datalist></app-datalist>
+<md-toolbar color="primary">
+  <span>{{title}}</span>
+  <span class="spacer"></span>
+  <button md-icon-button [mdMenuTriggerFor]="menu">
+    <md-icon>more_vert</md-icon>
+  </button>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item>
+      <md-icon>fingerprint</md-icon>
+      <span>Login</span>
+    </button>
+    <button md-menu-item disabled>
+      <md-icon>announcement</md-icon>
+      <span>Issues</span>
+    </button>
+    <button md-menu-item>
+      <md-icon>notifications_off</md-icon>
+      <span>Disable alerts</span>
+    </button>
+  </md-menu>
+</md-toolbar>
+<md-tab-group>
+  <md-tab label="Inicio">
+    <ul>
+      <li class="text" *ngFor="let item of items | async">
+        <h2>{{item.codigo}}</h2>
+        <p>{{item.denominacion}}</p>
+      </li>
+    </ul>
+  </md-tab>
+  <md-tab label="Data Object">
+    <app-dataobject></app-dataobject>
+  </md-tab>
+  <md-tab label="Data List">
+    <app-datalist></app-datalist>
+  </md-tab>
+</md-tab-group>
+
+
+
