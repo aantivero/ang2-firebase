@@ -1,0 +1,11 @@
+<h1>-- Data List --</h1>
+<ul>
+  <li *ngFor="let mensaje of mensajes | async">
+    <input type="text" #updatetext [value] = "mensaje.text"/>
+    <button (click)="updateMensaje(mensaje.$key, updatetext.value)">Update</button>
+    <button (click)="deleteMensaje(mensaje.$key)">Delete</button>
+  </li>
+</ul>
+<input type="text" #newMensaje/>
+<button (click)="addMensaje(newMensaje.value)">Add</button>
+<button (click)="deleteEverything()">Delete All</button>

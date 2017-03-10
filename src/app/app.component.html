@@ -1,0 +1,11 @@
+<h1>
+  {{title}}
+</h1>
+<ul>
+  <li class="text" *ngFor="let item of items | async">
+    <h2>{{item.codigo}}</h2>
+    <p>{{item.denominacion}}</p>
+  </li>
+</ul>
+<app-dataobject></app-dataobject>
+<app-datalist></app-datalist>
