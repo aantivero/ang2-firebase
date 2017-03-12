@@ -12,6 +12,6 @@ export class AppComponent {
     this.items = af.database.list('/entidadesfinancieras');
   }
 
-  title = 'Angular Firebase Material Design';
+  title = 'DEBIN - Test Ng2 FB MD';
   items: FirebaseListObservable<any[]>;
 }
