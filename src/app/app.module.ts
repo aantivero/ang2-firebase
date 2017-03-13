@@ -14,6 +14,7 @@ import {AuthService} from './providers/auth.service';
 import { LoginPageComponent } from './login-page/login-page.component';
 import {Routes, Router, RouterModule} from "@angular/router";
 import { HomePageComponent } from './home-page/home-page.component';
+import {AppShellModule} from '@angular/app-shell';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyAVpIqYpetwJi3i87kKCwv72TEXBKDaa5Y',
@@ -43,6 +44,7 @@ const routes: Routes = [
     AngularFireModule.initializeApp(firebaseConfig),
     MaterialModule,
     RouterModule.forRoot(routes),
+    AppShellModule.runtime(),
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
