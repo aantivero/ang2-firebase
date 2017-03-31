@@ -9,13 +9,39 @@ import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'ang
 export class DatalistComponent{
 
   mensajes: FirebaseListObservable<any>;
+  mismensajes: FirebaseListObservable<any>;
+  private af: AngularFire;
 
   constructor(af: AngularFire) {
-    this.mensajes = af.database.list('/mensajes');
+    this.af = af;
+    this.af.auth.subscribe(auth => {
+      if (auth != null) {
+        this.mensajes = af.database.list('/mensajes', {
+          query: {
+            orderByChild: 'uid',
+            equalTo:auth.auth.uid
+          }
+        });
+      }
+    });
+
    }
 
    addMensaje(newMensaje: string) {
-     this.mensajes.push({text: newMensaje});
+     this.af.auth.subscribe(auth => {
+       if (auth != null) {
+         console.log("-------------");
+         console.log("1->"+auth.auth);
+         console.log("2->"+auth.auth.uid);
+         console.log("3->"+auth.auth.email);
+         console.log("3->"+auth.auth.displayName);
+         console.log("3->"+auth.auth.providerId);
+         console.log("4->"+auth.google.uid);
+
+         this.mensajes.push({text: newMensaje, uid: auth.auth.uid, usuario: auth.google.displayName});
+       }
+     });
+
    }
 
    updateMensaje(key: string, newText: string) {
